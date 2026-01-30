@@ -24,6 +24,9 @@ public class PlayerStatus : MonoBehaviour
     public float bathroomDuration = 5f;
     public float bathroomShortenedInterval = 0.1f;
 
+    bool _bathroomCooldown = false;
+    public float bathroomCooldownTime = 5f;
+
     void Start()
     {
         _currValue = _maxValue;
@@ -72,15 +75,24 @@ public class PlayerStatus : MonoBehaviour
 
     public void BathroomBreak()
     {
-        StartCoroutine(RunBreak());
+        if (_bathroomCooldown) return;
+        else StartCoroutine(RunBreak());
     }
 
     IEnumerator RunBreak()
     {
         bathroom.SetActive(true);
+        _bathroomCooldown = true;
         recoveryInterval = bathroomShortenedInterval;
         yield return new WaitForSecondsRealtime(bathroomDuration);
         recoveryInterval = 1f;
         bathroom.SetActive(false);
+        StartCoroutine(ResetBathroomButton());
+    }
+
+    IEnumerator ResetBathroomButton()
+    {
+        yield return new WaitForSecondsRealtime(bathroomCooldownTime);
+        _bathroomCooldown = false;
     }
 }
