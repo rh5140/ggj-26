@@ -20,6 +20,7 @@ public class TaskManager : MonoBehaviour
     {
         _totalTime += Time.deltaTime;
         _currTime += Time.deltaTime;
+        if (taskList.Count > 0) taskList[0].transform.localScale = new Vector3(1.2f,1.2f,1.2f);
 
         if (_currTime > spawnInterval)
         {
