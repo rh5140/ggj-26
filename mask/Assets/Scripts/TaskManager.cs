@@ -46,4 +46,9 @@ public class TaskManager : MonoBehaviour
     {
         status.DepleteStatus(amount);
     }
+
+    public void RemoveFromTaskList(GameObject finishedTask)
+    {
+        taskList.Remove(finishedTask);
+    }
 }

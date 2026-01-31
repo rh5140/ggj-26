@@ -43,6 +43,7 @@ public class Task : MonoBehaviour
         if (_currTime >= duration)
         {
             taskManager.DepletePlayerStatus(damage);
+            taskManager.RemoveFromTaskList(gameObject);
             Destroy(gameObject);
         }
     }
