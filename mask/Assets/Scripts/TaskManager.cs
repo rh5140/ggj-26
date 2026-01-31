@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TaskManager : MonoBehaviour
@@ -8,8 +9,13 @@ public class TaskManager : MonoBehaviour
     public float multiplier = 1;
     float _currTime = 0f;
     float _totalTime;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
+    List<GameObject> taskList;
+
+    void Start()
+    {
+        taskList = new List<GameObject>();
+    }
+
     void Update()
     {
         _totalTime += Time.deltaTime;
@@ -32,7 +38,8 @@ public class TaskManager : MonoBehaviour
     void SpawnTask()
     {
         int idx = Random.Range(0,tasks.Length);
-        Instantiate(tasks[idx], transform);
+        GameObject newTask = Instantiate(tasks[idx], transform);
+        taskList.Add(newTask);
     }
 
     public void DepletePlayerStatus(int amount)
