@@ -228,7 +228,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Minigame
   task: {fileID: 0}
   hp: 5
+  damageOverTime: 2
   valueDisplay: {fileID: 7536095304675492094}
+  interval: 1
 --- !u!114 &7938406440022414851
 MonoBehaviour:
   m_ObjectHideFlags: 0

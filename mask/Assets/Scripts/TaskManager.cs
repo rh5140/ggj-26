@@ -3,7 +3,7 @@ using UnityEngine;
 public class TaskManager : MonoBehaviour
 {
     public PlayerStatus status;
-    public GameObject task;
+    public GameObject[] tasks;
     public float spawnInterval = 3f;
     public float multiplier = 1;
     float _currTime = 0f;
@@ -31,7 +31,8 @@ public class TaskManager : MonoBehaviour
 
     void SpawnTask()
     {
-        Instantiate(task, transform);
+        int idx = Random.Range(0,tasks.Length);
+        Instantiate(tasks[idx], transform);
     }
 
     public void DepletePlayerStatus(int amount)

@@ -904,6 +904,7 @@ MonoBehaviour:
   bathroom: {fileID: 1217006514}
   bathroomDuration: 5
   bathroomShortenedInterval: 0.1
+  bathroomCooldownTime: 5
 --- !u!1 &970225898
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,7 +1021,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaskManager
   status: {fileID: 916955427}
-  task: {fileID: 2591441799558877925, guid: dd65c0cb6b18d454a8f0fecd8e8955f2, type: 3}
+  tasks:
+  - {fileID: 2591441799558877925, guid: dd65c0cb6b18d454a8f0fecd8e8955f2, type: 3}
+  - {fileID: 5247420167847536427, guid: fcbc07e4bf54f6443b73916eb8fd4b7e, type: 3}
   spawnInterval: 3
   multiplier: 1
 --- !u!1 &1131434747
