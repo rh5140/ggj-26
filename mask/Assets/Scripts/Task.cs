@@ -18,7 +18,6 @@ public class Task : MonoBehaviour
     
     [SerializeField] TextMeshProUGUI _description; 
     [SerializeField] GameObject _minigame;
-    
 
     void Awake()
     {

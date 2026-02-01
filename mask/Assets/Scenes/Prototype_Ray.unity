@@ -2110,7 +2110,8 @@ MonoBehaviour:
   status: {fileID: 916955427}
   tasks:
   - {fileID: 2591441799558877925, guid: dd65c0cb6b18d454a8f0fecd8e8955f2, type: 3}
-  - {fileID: 2591441799558877925, guid: dd65c0cb6b18d454a8f0fecd8e8955f2, type: 3}
+  - {fileID: 2591441799558877925, guid: 015e044b79558474a91929ce19ad26c0, type: 3}
+  - {fileID: 2591441799558877925, guid: 68f030d2042b04341b0732710fe061e1, type: 3}
   spawnInterval: 3
   multiplier: 1
 --- !u!1 &1131434747
