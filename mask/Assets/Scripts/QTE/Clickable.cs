@@ -4,7 +4,7 @@ public class Clickable : MonoBehaviour
 {
     public Minigame minigame;
 
-    public void UpdateOnClick()
+    public virtual void UpdateOnClick()
     {
         minigame.DepleteHP();
         VisualChangeOnClick();

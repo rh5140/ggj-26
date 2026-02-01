@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public enum QTE
 {
-    Coffee
+    Coffee,
+    Other,
 }
 
 public class Minigame : MonoBehaviour
@@ -68,7 +69,7 @@ public class Minigame : MonoBehaviour
         EndMinigame(0.4f);
     }
 
-    void EndMinigame(float delay = 0)
+    void EndMinigame(float delay = 0.4f)
     {
         Destroy(task.gameObject, delay);
         Destroy(gameObject, delay);

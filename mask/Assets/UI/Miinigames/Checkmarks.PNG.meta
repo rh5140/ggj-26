@@ -267,6 +267,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: transparent
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 690
+        width: 158
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e90c3a0b1a3d46429a843fc16c41828
+      internalID: 2025864832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -289,6 +311,7 @@ TextureImporter:
       Checkmarks_3: 396664661
       Checkmarks_4: -1230353117
       Checkmarks_5: -1636334507
+      transparent: 2025864832
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
