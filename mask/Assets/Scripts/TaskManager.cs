@@ -58,7 +58,7 @@ public class TaskManager : MonoBehaviour
     {
         int idx = Random.Range(0,tasks.Length);
         GameObject newTask = Instantiate(tasks[idx], transform);
-        newTask.transform.SetSiblingIndex(newTask.transform.GetSiblingIndex() - 2);
+        // newTask.transform.SetSiblingIndex(1);
         HighlightTopItem();
     }
 

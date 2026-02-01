@@ -799,6 +799,10 @@ PrefabInstance:
       propertyPath: finalImage
       value: 
       objectReference: {fileID: 1432019928, guid: cdcc28c2113717c42b580dca9f7ee068, type: 3}
+    - target: {fileID: 7759436411915740371, guid: 7a7b954cb4e30f3418d880231c9bc0b2, type: 3}
+      propertyPath: coffeeSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c028ff766c2a5614dbb677ebb4362dd9, type: 3}
     m_RemovedComponents:
     - {fileID: 7938406440022414851, guid: 7a7b954cb4e30f3418d880231c9bc0b2, type: 3}
     m_RemovedGameObjects:

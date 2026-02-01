@@ -8,8 +8,7 @@ public class PlayerStatus : MonoBehaviour
     public float recoveryAmount = 1; 
     public float recoveryInterval = 1;
     public GameObject gameOverScreen;
-    public TextMeshProUGUI valueDisplay; // TEMPORARY
-
+    public TextMeshProUGUI valueDisplay; 
     float _maxValue = 100;
     float _currValue;
     float _time;
@@ -31,10 +30,15 @@ public class PlayerStatus : MonoBehaviour
     public AudioClip bathroomAmbient;
     public AudioClip officeAmbient;
 
+    public Color maxColor;
+    public Color midColor;
+    public Color minColor;
+    public Image barFill;
+
     void Start()
     {
         _currValue = _maxValue;
-        Time.timeScale = 1;
+        // Time.timeScale = 1;
     }
 
     public void StartGame()
@@ -93,7 +97,22 @@ public class PlayerStatus : MonoBehaviour
         {
             mask.sprite = masks[5];
         }
-        //valueDisplay.text = _currValue + "%";
+
+        barFill.fillAmount = _currValue / _maxValue;
+        valueDisplay.text = _currValue + "%";
+
+        if (_currValue > 70)
+        {
+            barFill.color = maxColor;
+        }
+        else if (_currValue > 40)
+        {
+            barFill.color = midColor;
+        }
+        else
+        {
+            barFill.color = minColor;
+        }
     }
 
     public void DepleteStatus(int amount)

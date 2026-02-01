@@ -237,6 +237,7 @@ MonoBehaviour:
   minColor: {r: 0.10980393, g: 1, b: 0, a: 1}
   _description: {fileID: 352000879856684476}
   _minigame: {fileID: 1099831117427161885, guid: d0494382d5be575409bf5e0edf5c0f77, type: 3}
+  crack: {fileID: 8300000, guid: dcadba34c56a7484799a4515a845d1b7, type: 3}
 --- !u!114 &450254283340648723
 MonoBehaviour:
   m_ObjectHideFlags: 0

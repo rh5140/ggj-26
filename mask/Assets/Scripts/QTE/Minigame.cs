@@ -24,10 +24,15 @@ public class Minigame : MonoBehaviour
     public Sprite finalImage;
 
     public AudioClip sfx;
+    public AudioClip coffeeSound;
 
     void Awake()
     {
         UpdateVisual();
+        if (qte == QTE.Coffee)
+        {
+            AudioManager.Instance.PlaySound(coffeeSound);
+        }
     }
 
     void Update()

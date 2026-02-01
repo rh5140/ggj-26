@@ -18,6 +18,7 @@ public class Task : MonoBehaviour
     
     [SerializeField] TextMeshProUGUI _description; 
     [SerializeField] GameObject _minigame;
+    [SerializeField] AudioClip crack;
 
     void Awake()
     {
@@ -34,6 +35,7 @@ public class Task : MonoBehaviour
         if (_currTime >= duration)
         {
             taskManager.DepletePlayerStatus(damage);
+            AudioManager.Instance.PlaySound(crack);
             Destroy(gameObject);
         }
     }
