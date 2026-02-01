@@ -23,6 +23,8 @@ public class Minigame : MonoBehaviour
     public Image swapImage;
     public Sprite finalImage;
 
+    public AudioClip sfx;
+
     void Awake()
     {
         UpdateVisual();
@@ -71,6 +73,7 @@ public class Minigame : MonoBehaviour
 
     void EndMinigame(float delay = 0.4f)
     {
+        AudioManager.Instance.PlaySound(sfx);
         Destroy(task.gameObject, delay);
         Destroy(gameObject, delay);
     }

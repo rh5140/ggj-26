@@ -15,5 +15,6 @@ public class ChangeOnClick : Clickable
     protected override void VisualChangeOnClick()
     {
         swapImage.sprite = newImage;
+        AudioManager.Instance.PlaySound(sfx);
     }
 }

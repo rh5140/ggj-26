@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Clickable
   minigame: {fileID: 126477181237445173}
+  sfx: {fileID: 8300000, guid: 9171e17ebf023a4469373e5d43fe8919, type: 3}
 --- !u!114 &3541071512801683159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Clickable
   minigame: {fileID: 126477181237445173}
+  sfx: {fileID: 8300000, guid: c4eb05a02d6e10b4c815affa2c34894e, type: 3}
 --- !u!114 &5956615206545610139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Clickable
   minigame: {fileID: 126477181237445173}
+  sfx: {fileID: 8300000, guid: c4eb05a02d6e10b4c815affa2c34894e, type: 3}
 --- !u!114 &8286587852540283572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,6 +555,10 @@ PrefabInstance:
       propertyPath: qte
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7759436411915740371, guid: 7a7b954cb4e30f3418d880231c9bc0b2, type: 3}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 32cbab186b9545d4aa1ca65fd57a6435, type: 3}
     - target: {fileID: 7759436411915740371, guid: 7a7b954cb4e30f3418d880231c9bc0b2, type: 3}
       propertyPath: finalImage
       value: 

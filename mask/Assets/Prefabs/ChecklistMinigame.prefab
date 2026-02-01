@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeOnClick
   minigame: {fileID: 126477181237445173}
+  sfx: {fileID: 8300000, guid: fb21dbc0076bdac46875fa8acfd55719, type: 3}
   swapImage: {fileID: 4948752906296079475}
   newImage: {fileID: -1572813975, guid: 4adb10d768bf96c498eb6a5b4cc9dcb0, type: 3}
 --- !u!114 &3208160245726237553
@@ -211,6 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeOnClick
   minigame: {fileID: 126477181237445173}
+  sfx: {fileID: 8300000, guid: 0e3c84b2a26af8b469f89fa0ebaf96d4, type: 3}
   swapImage: {fileID: 8863997228428231110}
   newImage: {fileID: -1636334507, guid: 4adb10d768bf96c498eb6a5b4cc9dcb0, type: 3}
 --- !u!114 &8201793485683895669
@@ -332,6 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeOnClick
   minigame: {fileID: 126477181237445173}
+  sfx: {fileID: 8300000, guid: fb21dbc0076bdac46875fa8acfd55719, type: 3}
   swapImage: {fileID: 7029536747646437234}
   newImage: {fileID: 1805170069, guid: 4adb10d768bf96c498eb6a5b4cc9dcb0, type: 3}
 --- !u!114 &5687296850855634466
@@ -453,6 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeOnClick
   minigame: {fileID: 126477181237445173}
+  sfx: {fileID: 8300000, guid: 0e3c84b2a26af8b469f89fa0ebaf96d4, type: 3}
   swapImage: {fileID: 3296191316956433556}
   newImage: {fileID: -1572813975, guid: 4adb10d768bf96c498eb6a5b4cc9dcb0, type: 3}
 --- !u!114 &9124030138054180026
@@ -649,6 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeOnClick
   minigame: {fileID: 126477181237445173}
+  sfx: {fileID: 8300000, guid: fb21dbc0076bdac46875fa8acfd55719, type: 3}
   swapImage: {fileID: 49380419112900500}
   newImage: {fileID: -1230353117, guid: 4adb10d768bf96c498eb6a5b4cc9dcb0, type: 3}
 --- !u!114 &7647046578877650873
@@ -770,6 +775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeOnClick
   minigame: {fileID: 126477181237445173}
+  sfx: {fileID: 8300000, guid: fb21dbc0076bdac46875fa8acfd55719, type: 3}
   swapImage: {fileID: 4171511488991080678}
   newImage: {fileID: -746737741, guid: 4adb10d768bf96c498eb6a5b4cc9dcb0, type: 3}
 --- !u!114 &3541071512801683159
@@ -891,6 +897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeOnClick
   minigame: {fileID: 126477181237445173}
+  sfx: {fileID: 8300000, guid: 0e3c84b2a26af8b469f89fa0ebaf96d4, type: 3}
   swapImage: {fileID: 6402200618335123610}
   newImage: {fileID: 396664661, guid: 4adb10d768bf96c498eb6a5b4cc9dcb0, type: 3}
 --- !u!114 &6495791552331686326
@@ -1042,6 +1049,10 @@ PrefabInstance:
       propertyPath: qte
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7759436411915740371, guid: 7a7b954cb4e30f3418d880231c9bc0b2, type: 3}
+      propertyPath: sfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 676c3e9412817974fba1116236b86dcf, type: 3}
     - target: {fileID: 7759436411915740371, guid: 7a7b954cb4e30f3418d880231c9bc0b2, type: 3}
       propertyPath: finalImage
       value: 

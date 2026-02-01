@@ -28,11 +28,19 @@ public class PlayerStatus : MonoBehaviour
     public Image mask;
     public Sprite[] masks;
 
+    public AudioClip bathroomAmbient;
+    public AudioClip officeAmbient;
+
     void Start()
     {
         _currValue = _maxValue;
-        _time = 0f;
+        Time.timeScale = 1;
+    }
 
+    public void StartGame()
+    {
+        _time = 0f;
+        AudioManager.Instance.ChangeMusic(officeAmbient);
         StartCoroutine(ResetBathroomButton());
     }
 
@@ -99,6 +107,7 @@ public class PlayerStatus : MonoBehaviour
     {
         StartCoroutine(TranslateVertically(bathroomTransition, new Vector2(0,1000), 1f));
         yield return new WaitForSecondsRealtime(0.5f);
+        AudioManager.Instance.ChangeMusic(bathroomAmbient);
         bathroom.SetActive(true);
         _bathroomCooldown = true;
         recoveryInterval = bathroomShortenedInterval;
@@ -113,6 +122,7 @@ public class PlayerStatus : MonoBehaviour
         StartCoroutine(TranslateVertically(bathroomTransition, new Vector2(0,-1000), 1f));
         yield return new WaitForSecondsRealtime(0.5f);
         bathroom.SetActive(false);
+        AudioManager.Instance.ChangeMusic(officeAmbient);
         StartCoroutine(ResetBathroomButton());
     }
 
