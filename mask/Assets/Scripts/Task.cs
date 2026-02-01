@@ -43,7 +43,6 @@ public class Task : MonoBehaviour
         if (_currTime >= duration)
         {
             taskManager.DepletePlayerStatus(damage);
-            taskManager.RemoveFromTaskList(gameObject);
             Destroy(gameObject);
         }
     }
@@ -53,5 +52,10 @@ public class Task : MonoBehaviour
         _description.text = "ACTIVE!!";
         Minigame minigame = Instantiate(_minigame, GameObject.Find("GameplayCanvas").transform).GetComponent<Minigame>();
         minigame.task = this;
+    }
+
+    void OnDestroy()
+    {
+        taskManager.HighlightTopItem();
     }
 }
