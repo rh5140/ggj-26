@@ -6,17 +6,16 @@ public class GameTimer : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
     public bool startOnAwake = true;
-    public float startMinutes = 5f;  // Start time (in minutes)
     public float currentTime = 0f;
     public bool isRunning = false;
     
-    // Event triggered when countdown ends
-    public event Action OnTimerEnd;
+    // Event triggered when timer stops
+    public event Action<float> OnTimerStop;
     
     void Start()
     {
-        // Initialize time to 5 minutes (converted to seconds)
-        currentTime = startMinutes * 60f + 1f; // Add 1 second to ensure correct display
+        // Initialize time to 0
+        currentTime = 0f;
         
         if (startOnAwake)
         {
@@ -30,19 +29,8 @@ public class GameTimer : MonoBehaviour
     {
         if (isRunning)
         {
-            // Countdown
-            currentTime -= Time.deltaTime;
-            
-            // If time reaches 0
-            if (currentTime <= 0f)
-            {
-                currentTime = 0f;
-                isRunning = false;
-                
-                // Trigger end event
-                OnTimerEnd?.Invoke();
-            }
-            
+            // Count up from 0
+            currentTime += Time.deltaTime;
             UpdateTimerDisplay();
         }
     }
@@ -53,25 +41,43 @@ public class GameTimer : MonoBehaviour
         timerText.text = time.ToString(@"mm\:ss");
     }
     
-    // Other public methods to control the timer
+    // Start the timer
     public void StartTimer()
     {
         isRunning = true;
     }
     
+    // Pause the timer
     public void PauseTimer()
     {
         isRunning = false;
     }
     
+    // Stop timer and trigger event with final time
+    public void StopTimer()
+    {
+        isRunning = false;
+        OnTimerStop?.Invoke(currentTime);
+    }
+    
+    // Reset timer to 0
     public void ResetTimer()
     {
-        currentTime = startMinutes * 60f;
+        currentTime = 0f;
         UpdateTimerDisplay();
     }
     
+    // Get current time in seconds
     public float GetCurrentTime()
     {
         return currentTime;
     }
+    
+    // Get formatted time string (mm:ss)
+    public string GetFormattedTime()
+    {
+        TimeSpan time = TimeSpan.FromSeconds(currentTime);
+        return time.ToString(@"mm\:ss");
+    }
+    
 }
