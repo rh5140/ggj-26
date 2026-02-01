@@ -9,37 +9,28 @@ public class PlayerStatus : MonoBehaviour
     public float recoveryInterval = 1;
     public GameObject gameOverScreen;
     public TextMeshProUGUI valueDisplay; // TEMPORARY
-    public Image colorBlock; // TEMPORARY
-    public Color maxColor;
-    public Color minColor;
 
     float _maxValue = 100;
     float _currValue;
     float _time;
 
-    Gradient gradient;
-    GradientColorKey[] colors;
 
     public GameObject bathroom;
-    public float bathroomDuration = 5f;
+    public float bathroomDuration = 3f;
     public float bathroomShortenedInterval = 0.1f;
 
     bool _bathroomCooldown = false;
     public float bathroomCooldownTime = 5f;
+    public RectTransform bathroomUI;
+    public Image bathroomFill;
+    public RectTransform bathroomTransition;
 
     void Start()
     {
         _currValue = _maxValue;
         _time = 0f;
-        // ref: https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Gradient.html
-        gradient = new Gradient();
-        colors = new GradientColorKey[2];
-        colors[0] = new GradientColorKey(minColor, 0.0f);
-        colors[1] = new GradientColorKey(maxColor, 1.0f);
-        GradientAlphaKey[] alphas = new GradientAlphaKey[2];
-        alphas[0] = new GradientAlphaKey(1.0f, 0.0f);
-        alphas[1] = new GradientAlphaKey(1.0f, 1.0f);
-        gradient.SetKeys(colors, alphas);
+
+        StartCoroutine(ResetBathroomButton());
     }
 
     void Update()
@@ -63,8 +54,6 @@ public class PlayerStatus : MonoBehaviour
     void UpdateVisual()
     {
         valueDisplay.text = _currValue + "%";
-        float interval = _currValue / _maxValue;
-        colorBlock.color = gradient.Evaluate(interval);
     }
 
     public void DepleteStatus(int amount)
@@ -81,18 +70,43 @@ public class PlayerStatus : MonoBehaviour
 
     IEnumerator RunBreak()
     {
+        StartCoroutine(TranslateVertically(bathroomTransition, new Vector2(0,1000), 1f));
+        yield return new WaitForSecondsRealtime(0.5f);
         bathroom.SetActive(true);
         _bathroomCooldown = true;
         recoveryInterval = bathroomShortenedInterval;
-        yield return new WaitForSecondsRealtime(bathroomDuration);
+        float bathroomTime = 0;
+        while (bathroomTime < bathroomDuration)
+        {
+            bathroomTime += Time.deltaTime;
+            bathroomFill.fillAmount = bathroomTime/bathroomDuration;
+            yield return null;
+        }
         recoveryInterval = 1f;
+        StartCoroutine(TranslateVertically(bathroomTransition, new Vector2(0,-1000), 1f));
+        yield return new WaitForSecondsRealtime(0.5f);
         bathroom.SetActive(false);
         StartCoroutine(ResetBathroomButton());
     }
 
     IEnumerator ResetBathroomButton()
     {
+        StartCoroutine(TranslateVertically(bathroomUI, new Vector2(-586,-580), 0.4f));
         yield return new WaitForSecondsRealtime(bathroomCooldownTime);
         _bathroomCooldown = false;
+        StartCoroutine(TranslateVertically(bathroomUI, new Vector2(-586,-333), 0.2f));
+    }
+
+    IEnumerator TranslateVertically(RectTransform ui, Vector2 newPosition, float duration)
+    {
+        Vector2 startPosition = ui.anchoredPosition;
+        
+        float translateTime = 0;
+        while (translateTime < duration)
+        {
+            translateTime += Time.deltaTime;
+            ui.anchoredPosition = Vector2.Lerp(startPosition, newPosition, translateTime / duration);
+            yield return null;
+        }
     }
 }
