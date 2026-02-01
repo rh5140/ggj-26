@@ -2117,7 +2117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TaskManager
   status: {fileID: 916955427}
   tasks:
-  - {fileID: 2591441799558877925, guid: a26158f47a41d3f4eb73bdfb9c764687, type: 3}
+  - {fileID: 2591441799558877925, guid: 5f3d9a993bbac73428f433ee63779f80, type: 3}
   spawnInterval: 3
   multiplier: 1
 --- !u!1 &1131434747
