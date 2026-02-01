@@ -8,8 +8,8 @@ public class TaskManager : MonoBehaviour
     public float multiplier = 1;
     float _currTime = 0f;
     float _totalTime;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
+
+
     void Update()
     {
         _totalTime += Time.deltaTime;
@@ -33,6 +33,15 @@ public class TaskManager : MonoBehaviour
     {
         int idx = Random.Range(0,tasks.Length);
         Instantiate(tasks[idx], transform);
+        HighlightTopItem();
+    }
+
+    public void HighlightTopItem()
+    {
+        if (transform.childCount > 0)
+        {
+            transform.GetChild(0).localScale = new Vector3(1.2f,1.2f,1.2f);
+        }
     }
 
     public void DepletePlayerStatus(int amount)

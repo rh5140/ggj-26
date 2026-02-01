@@ -53,4 +53,9 @@ public class Task : MonoBehaviour
         Minigame minigame = Instantiate(_minigame, GameObject.Find("GameplayCanvas").transform).GetComponent<Minigame>();
         minigame.task = this;
     }
+
+    void OnDestroy()
+    {
+        taskManager.HighlightTopItem();
+    }
 }
