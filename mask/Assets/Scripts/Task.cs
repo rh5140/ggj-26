@@ -11,9 +11,8 @@ public class Task : MonoBehaviour
     
     public Image colorBlock; // TEMPORARY
     public Color maxColor;
+    public Color midColor;
     public Color minColor;
-    Gradient gradient;
-    GradientColorKey[] colors;
 
     float _currTime = 0f; // BAD NAMING...
     
@@ -25,21 +24,14 @@ public class Task : MonoBehaviour
     {
         taskManager = GetComponentInParent<TaskManager>();
         _description.text = description;
-        // ref: https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Gradient.html
-        gradient = new Gradient();
-        colors = new GradientColorKey[2];
-        colors[0] = new GradientColorKey(minColor, 0.0f);
-        colors[1] = new GradientColorKey(maxColor, 1.0f);
-        GradientAlphaKey[] alphas = new GradientAlphaKey[2];
-        alphas[0] = new GradientAlphaKey(1.0f, 0.0f);
-        alphas[1] = new GradientAlphaKey(1.0f, 1.0f);
-        gradient.SetKeys(colors, alphas);
     }
 
     void Update()
     {
         _currTime += Time.deltaTime;
-        colorBlock.color = gradient.Evaluate(_currTime/duration);
+        if (_currTime > duration / 2) colorBlock.color = midColor;
+        if (_currTime > duration * 3 / 4) colorBlock.color = maxColor;
+        colorBlock.fillAmount = 1 - _currTime/duration;
         if (_currTime >= duration)
         {
             taskManager.DepletePlayerStatus(damage);

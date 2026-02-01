@@ -4,11 +4,16 @@ public class TaskManager : MonoBehaviour
 {
     public PlayerStatus status;
     public GameObject[] tasks;
-    public float spawnInterval = 3f;
-    public float multiplier = 1;
+    public float spawnInterval = 2f;
+    public float multiplier = 3;
     float _currTime = 0f;
     float _totalTime;
+    float threshold;
 
+    void Start()
+    {
+        SpawnTask();
+    }
 
     void Update()
     {
@@ -17,14 +22,34 @@ public class TaskManager : MonoBehaviour
 
         if (_currTime > spawnInterval)
         {
-            SpawnTask();
+            int tasksCount = transform.childCount;
+            if (tasksCount > 8)
+            {
+                threshold = 0.1f;
+            }
+            else if (tasksCount > 4)
+            {
+                threshold = 0.5f;
+            }
+            else if (tasksCount > 1)
+            {
+                threshold = 0.75f;
+            }
+            else
+            {
+                threshold = 1;
+            }
+            
+            float spawnChance = Random.Range(0,1);
+            if (threshold >= spawnChance)
+                SpawnTask();
             _currTime = 0;
         }
 
         if (_totalTime > spawnInterval * multiplier)
         {
             spawnInterval -= 0.5f;
-            multiplier++;
+            multiplier *= 3;
             _totalTime = 0;
         }
     }
@@ -38,10 +63,10 @@ public class TaskManager : MonoBehaviour
 
     public void HighlightTopItem()
     {
-        if (transform.childCount > 0)
-        {
-            transform.GetChild(0).localScale = new Vector3(1.2f,1.2f,1.2f);
-        }
+        // if (transform.childCount > 0)
+        // {
+        //     transform.GetChild(0).localScale = new Vector3(1f,1f,1f);
+        // }
     }
 
     public void DepletePlayerStatus(int amount)
