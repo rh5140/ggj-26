@@ -15,6 +15,7 @@ public class Menu : MonoBehaviour
     {
         game.StartGame();
         menuCanvas.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void Credits()
