@@ -25,6 +25,9 @@ public class PlayerStatus : MonoBehaviour
     public Image bathroomFill;
     public RectTransform bathroomTransition;
 
+    public Image mask;
+    public Sprite[] masks;
+
     void Start()
     {
         _currValue = _maxValue;
@@ -53,7 +56,31 @@ public class PlayerStatus : MonoBehaviour
 
     void UpdateVisual()
     {
-        valueDisplay.text = _currValue + "%";
+        if (_currValue > 90)
+        {
+            mask.sprite = masks[0];
+        }
+        else if (_currValue > 70)
+        {
+            mask.sprite = masks[1];
+        }
+        else if (_currValue > 50)
+        {
+            mask.sprite = masks[2];
+        }
+        else if (_currValue > 30)
+        {
+            mask.sprite = masks[3];
+        }
+        else if (_currValue > 10)
+        {
+            mask.sprite = masks[4];
+        }
+        else
+        {
+            mask.sprite = masks[5];
+        }
+        //valueDisplay.text = _currValue + "%";
     }
 
     public void DepleteStatus(int amount)

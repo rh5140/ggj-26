@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Task
   description: Make your manager coffee
   duration: 7
-  damage: 5
+  damage: 7
   taskManager: {fileID: 0}
   colorBlock: {fileID: 5891954838791552346}
   maxColor: {r: 1, g: 0, b: 0.09067249, a: 1}
