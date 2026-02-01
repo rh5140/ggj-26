@@ -10,10 +10,10 @@ public class TaskManager : MonoBehaviour
     float _totalTime;
     float threshold;
 
-    void Start()
-    {
-        SpawnTask();
-    }
+    // void StartGame()
+    // {
+    //     SpawnTask();
+    // }
 
     void Update()
     {
@@ -57,7 +57,8 @@ public class TaskManager : MonoBehaviour
     void SpawnTask()
     {
         int idx = Random.Range(0,tasks.Length);
-        Instantiate(tasks[idx], transform);
+        GameObject newTask = Instantiate(tasks[idx], transform);
+        newTask.transform.SetSiblingIndex(newTask.transform.GetSiblingIndex() - 2);
         HighlightTopItem();
     }
 
