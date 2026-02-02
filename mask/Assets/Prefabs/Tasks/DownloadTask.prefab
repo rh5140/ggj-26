@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Task
   description: Download files
-  duration: 12
+  duration: 15
   damage: 10
   taskManager: {fileID: 0}
   colorBlock: {fileID: 5891954838791552346}

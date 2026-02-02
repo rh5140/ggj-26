@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Task
   description: Email clients
-  duration: 5
+  duration: 7
   damage: 5
   taskManager: {fileID: 0}
   colorBlock: {fileID: 5891954838791552346}

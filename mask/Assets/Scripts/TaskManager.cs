@@ -4,11 +4,12 @@ public class TaskManager : MonoBehaviour
 {
     public PlayerStatus status;
     public GameObject[] tasks;
-    public float spawnInterval = 2f;
-    public float multiplier = 3;
+    public float spawnInterval = 4f;
+    public float multiplier = 5;
     float _currTime = 0f;
     float _totalTime;
     float threshold;
+    float _gameTime = 0f;
 
     // void StartGame()
     // {
@@ -19,21 +20,26 @@ public class TaskManager : MonoBehaviour
     {
         _totalTime += Time.deltaTime;
         _currTime += Time.deltaTime;
+        _gameTime += Time.deltaTime;
 
         if (_currTime > spawnInterval)
         {
             int tasksCount = transform.childCount;
+
+            int maxTasks = GetMaxTasks();
+            if (tasksCount >= maxTasks) return;
+
             if (tasksCount > 8)
             {
-                threshold = 0.1f;
+                threshold = 0.05f;
             }
             else if (tasksCount > 4)
             {
-                threshold = 0.5f;
+                threshold = 0.3f;
             }
             else if (tasksCount > 1)
             {
-                threshold = 0.75f;
+                threshold = 0.5f;
             }
             else
             {
@@ -73,5 +79,18 @@ public class TaskManager : MonoBehaviour
     public void DepletePlayerStatus(int amount)
     {
         status.DepleteStatus(amount);
+    }
+    int GetMaxTasks()
+    {
+        int minute = Mathf.FloorToInt(_gameTime / 60f);  // Use _gameTime instead
+
+        switch (minute)
+        {
+            case 0: return 3;
+            case 1: return 5;
+            case 2: return 7;
+            case 3: return 9;
+            default: return 11;
+        }
     }
 }

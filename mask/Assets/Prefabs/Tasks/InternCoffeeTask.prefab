@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Task
   description: Make your intern coffee
-  duration: 10
+  duration: 12
   damage: 5
   taskManager: {fileID: 0}
   colorBlock: {fileID: 5891954838791552346}

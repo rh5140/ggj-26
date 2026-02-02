@@ -61,7 +61,6 @@ public class PlayerStatus : MonoBehaviour
 
         if (_currValue == 0)
         {
-            GameObject.Find("TaskManager").SetActive(false);
             foreach (Minigame mg in FindObjectsOfType<Minigame>())
             {
                 Destroy(mg.gameObject);
