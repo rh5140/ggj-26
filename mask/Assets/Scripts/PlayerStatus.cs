@@ -155,6 +155,8 @@ public class PlayerStatus : MonoBehaviour
         yield return new WaitForSecondsRealtime(bathroomCooldownTime);
         _bathroomCooldown = false;
         StartCoroutine(TranslateVertically(bathroomUI, new Vector2(-586,-333), 0.2f));
+        yield return new WaitForSecondsRealtime(0.2f);
+        bathroomFill.fillAmount = 0;
     }
 
     IEnumerator TranslateVertically(RectTransform ui, Vector2 newPosition, float duration)
